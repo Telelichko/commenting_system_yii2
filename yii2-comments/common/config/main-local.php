@@ -9,7 +9,7 @@ return [
             'charset' => 'utf8mb4',
         ],
         'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
+            'class' => '\yii\symfonymailer\Mailer',
             'viewPath' => '@common/mail',
             'useFileTransport' => true,
         ],
