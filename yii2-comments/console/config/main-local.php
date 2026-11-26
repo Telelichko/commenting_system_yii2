@@ -1,10 +1,16 @@
 <?php
 
-declare(strict_types=1);
-
 return [
-    'bootstrap' => ['gii'],
-    'modules' => [
-        'gii' => \yii\gii\Module::class,
+    'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'sqlite:' . dirname(__DIR__) . '/data/db.sqlite',
+            'charset' => 'utf8',
+        ],
+        'mailer' => [
+            'class' => \yii\symfonymailer\Mailer::class,
+            'viewPath' => '@common/mail',
+            'useFileTransport' => true, 
+        ],
     ],
 ];
