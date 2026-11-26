@@ -3,11 +3,13 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'sqlite:' . dirname(__DIR__) . '/data/db.sqlite',
-            'charset' => 'utf8',
+            'dsn' => 'mysql:host=db;dbname=yii2_comments;charset=utf8mb4',
+            'username' => 'yii2',
+            'password' => 'yii2_password_123',
+            'charset' => 'utf8mb4',
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
+            'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@common/mail',
             'useFileTransport' => true,
         ],

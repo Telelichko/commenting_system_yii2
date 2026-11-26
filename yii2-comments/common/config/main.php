@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     'bootstrap' => [
-        'log'
+        'log',
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -14,13 +14,15 @@ return [
     'components' => [
         'cache' => [
             'class' => \yii\caching\FileCache::class,
-        ],        
+        ],
+        
         'redis' => [
             'class' => \yii\redis\Connection::class,
-            'hostname' => 'localhost',
+            'hostname' => 'redis',
             'port' => 6379,
             'database' => 0,
         ],
+        
         'authManager' => [
             'class' => \yii\rbac\DbManager::class,
         ],
