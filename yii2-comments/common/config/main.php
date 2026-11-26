@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 return [
     'bootstrap' => [
-        \common\bootstrap\MailerBootstrap::class,
+        // \common\bootstrap\MailerBootstrap::class,
+        'log'
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
