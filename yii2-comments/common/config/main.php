@@ -14,6 +14,15 @@ return [
     'components' => [
         'cache' => [
             'class' => \yii\caching\FileCache::class,
+        ],        
+        'redis' => [
+            'class' => \yii\redis\Connection::class,
+            'hostname' => 'localhost',
+            'port' => 6379,
+            'database' => 0,
+        ],
+        'authManager' => [
+            'class' => \yii\rbac\DbManager::class,
         ],
     ],
 ];
