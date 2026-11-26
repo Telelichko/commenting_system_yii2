@@ -22,6 +22,10 @@ $items = [
         'url' => ['/site/contact'],
     ],
     [
+        'label' => 'Комментарии',
+        'url' => ['/site/comments'],
+    ],
+    [
         'label' => 'Signup',
         'url' => ['/site/signup'],
         'visible' => Yii::$app->user->isGuest,
@@ -43,28 +47,3 @@ $items = [
 ];
 
 ?>
-<header id="header">
-    <?php NavBar::begin(
-        [
-            'brandLabel' => Yii::$app->name,
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
-        ],
-    ) ?>
-    <?= Nav::widget(
-        [
-            'options' => ['class' => 'navbar-nav me-auto'],
-            'encodeLabels' => false,
-            'items' => $items,
-        ],
-    ) ?>
-    <?= Html::button(
-        '&#127769;',
-        [
-            'id' => 'theme-toggle',
-            'class' => 'btn btn-link nav-link fs-5',
-            'aria-label' => 'Switch to dark mode',
-        ],
-    ) ?>
-    <?php NavBar::end() ?>
-</header>

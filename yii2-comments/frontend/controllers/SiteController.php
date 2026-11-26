@@ -303,4 +303,26 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionComments()
+    {
+        $model = new \common\models\Comment();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            if ($model->save()) {
+                return ['success' => true, 'comment' => $model->attributes];
+            }
+            return ['success' => false, 'errors' => $model->errors];
+        }
+
+        $comments = \common\models\Comment::find()
+            ->orderBy(['created_at' => SORT_DESC])
+            ->all();
+
+        return $this->render('comments', [
+            'model'    => $model,
+            'comments' => $comments,
+        ]);
+    }
 }
